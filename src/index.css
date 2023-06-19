@@ -1,13 +1,274 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+   margin: 0;
+   font-family: 'inter', system-ui;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   background-color: #e7f6ff;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+   font-family: 'inter, system-ui';
 }
+
+.wrapper {
+   background: #FFFFFF;
+   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
+   border-radius: 20px;
+   max-width: 1080px;
+   margin: 50px auto;
+}
+
+.header {
+   display: flex;
+   justify-content: space-between;
+   padding: 40px;
+   border-bottom: 1px solid #eaeaea;
+}
+
+.headerLeft {
+   display: flex;
+   align-items: center;
+}
+
+h3, p {
+   margin: 0;
+}
+
+.headerLeft h3 {
+   text-transform: uppercase;
+}
+
+img {
+   margin-right: 15px;
+}
+
+.headerSlogan {
+   opacity: .6;
+}
+
+.headerRight {
+   display: flex;
+   list-style: none;
+}
+
+.content {
+   padding: 40px;
+}
+
+.content h1 {
+   margin: 0;
+}
+
+.headerSearch {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 40px;
+}
+
+.headerRight li {
+   margin-right: 30px;
+}
+
+.headerCards {
+   margin-bottom: 40px;
+}
+
+.card {
+   border: 1px solid #f3f3f3;
+   padding: 20px;
+   width: 170px;
+   border-radius: 40px;
+   margin-right: 40px;
+   transition: box-shadow .2s ease-in-out, transform .2s ease-in-out;
+}
+
+.card:hover {
+   transform: translateY(-5px);
+   box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.05);
+}
+
+.card .favorite {
+   position: absolute;
+   cursor: pointer;
+}
+
+.card h5 {
+   font-weight: 400;
+   font-size: 14px;
+}
+
+.cardPrice {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.cardPriceItem {
+   display: flex;
+   flex-direction: column;
+}
+
+.cardPriceItem span {
+   font-size: 13px;
+   opacity: .5;
+   text-transform: uppercase;
+}
+
+.cardPriceItem b {
+   font-size: 13px;
+}
+
+.cardPrice button {
+   background: #fff;
+   border: 1px solid #F2F2F2;
+   box-sizing: border-box;
+   border-radius: 8px;
+   width: 32px;
+   height: 32px;
+   cursor: pointer;
+}
+
+.button>img {
+   margin: 0 auto;
+}
+
+.sneakers {
+   display: flex;
+}
+
+.search-block {
+   border: 1px solid #f3f3f3;
+   border-radius: 10px;
+   padding: 0 15px;
+   margin-right: 40px;
+}
+
+.search-block img {
+   margin: 0;
+   align-items: center;
+   margin-top: 12px;
+}
+
+.search-block input {
+   border: 0;
+   padding: 12px;
+   font-size: 20px;
+}
+
+.search-block>input:focus {
+   outline: none;
+}
+
+.right-shadow {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   left: 0;
+   top: 0;
+   background-color: rgba(0, 0, 0, 0.5);
+   z-index: 1;
+}
+
+.right-cart {
+   position: absolute;
+   width: 385px;
+   right: 0;
+   height: 100%;
+   background: #FFFFFF;
+   box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+   padding: 30px;
+   display: flex;
+   flex-direction: column;
+}
+
+.right-cart h2 {
+   margin: 0;
+   font-size: 24px;
+   margin-bottom: 20px;
+   display: flex;
+   justify-content: space-between;
+}
+
+.right-cart h2 img {
+   cursor: pointer;
+}
+
+.right-cart .items {
+   flex: 1;
+   overflow: auto;
+}
+
+.cartItem {
+   display: flex;
+   align-items: center;
+   font-size: 14px;
+   border: 1px solid #eaeaea;
+   border-radius: 20px;
+   margin-bottom: 20px;
+   overflow: hidden;
+}
+
+.cartItem div {
+   width: 150px;
+}
+
+.cartItem>div>p {
+   margin-bottom: 5px;
+}
+
+.cartItem img:first-of-type {
+   padding-bottom: 10px;
+   margin-left: 10px;
+}
+
+.cartItem img:last-of-type {
+   margin-left: 100px;
+   cursor: pointer;
+   transition: opacity .2s ease-in-out;
+   opacity: .3;
+}
+
+.cartItem img:last-of-type:hover {
+   opacity: 1;
+}
+
+.rightCartFooter li {
+   display: flex;
+   align-items: flex-end;
+   margin-bottom: 10px;
+}
+
+.rightCartFooter div {
+   width: 180px;
+   margin: 0 7px;
+   border-bottom: 2px dashed #dfdfdf;
+   margin-bottom: 3px;
+}
+
+.greenBtn {
+   width: 100%;
+   height: 50px;
+   background: #9DD558;
+   border-radius: 18px;
+   border: none;
+   font-size: 16px;
+   color: #fff;
+   font-weight: 500;
+   margin-top: 20px;
+   cursor: pointer;
+   transition: background .4s ease-in-out;
+}
+
+.greenBtn:hover {
+   opacity: .9;
+}
+
+.greenBtn img {
+   position: relative;
+   right: -120px;
+   top: 2px;
+   width: 15px;
+   height: 15px;
+}
+
