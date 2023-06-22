@@ -1,41 +1,32 @@
+import React, {useEffect, useState} from "react";
 import Card from "./components/Card";
 import Cart from "./components/Cart";
 import Header from "./components/Header";
 
 function App() {
+  const [items, setItems] = useState([])
+  const [cartItems, setCartItems] = useState([])
+  const [cartOpened, setCartOpened] = useState(false)
 
-  const arr = [
-    {
-      name: "Мужские Кроссовки Nike Blazer Mid Suede",
-      price: 12999,
-      img: '/img/sneakers/1.jpg',
-      desc: "Good"
-    },
-    {
-      name: "Мужские Кроссовки Nike Air Max 270",
-      price: 11999,
-      img: '/img/sneakers/2.jpg',
-      desc: "Super Good"
-    },
-    {
-      name: "Мужские Кроссовки Nike Blazer Mid Suede",
-      price: 8499,
-      img: '/img/sneakers/3.jpg',
-      desc: "Adbott"
-    },
-    {
-      name: "Кроссовки Puma X Aka Boku Future Rider",
-      price: 8999,
-      img: '/img/sneakers/4.jpg',
-      desc: "Adbott"
-    }
-  ]
+  useEffect(() => {
+    fetch('https://649163092f2c7ee6c2c81eaa.mockapi.io/sneakersItem').then(res => {
+      return res.json()
+    }).then(json =>
+      setItems(json));
+  })
+  
+  const onAddToCart = (obj) => {
+    setCartItems(prev => [...prev, obj])
+  }
+  
+  console.log(cartItems)
 
-  return (
+  return (   
+
     <div className='wrapper'>
       
-      <Cart />
-      <Header />  
+      {cartOpened && <Cart items={cartItems} onClose={() => setCartOpened(false)}/>}
+      <Header onClickCart={() => setCartOpened(true)} />  
 
       <div className="content">
         <div className="headerSearch">
@@ -47,8 +38,14 @@ function App() {
         </div>          
 
         <div className="sneakers">
-          {arr.map((el) => (
-            <Card name={el.name} price={el.price} img={el.img} />
+          {items.map((el) => (
+            <Card
+              name={el.name}
+              price={el.price}
+              img={el.img}
+              onFavorite={() => alert("You're add to Favorite bookmarks")}
+              onPlus={(obj) => onAddToCart(obj)}               
+              />
           ))}      
         </div>
         

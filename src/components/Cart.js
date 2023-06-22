@@ -1,31 +1,29 @@
 import React from 'react'
 
-export default function Cart() {
+export default function Cart({onClose, items = []}) {
   return (
      <div>
-        <div style={{display: 'none'}} className="right-shadow">
+        <div className="right-shadow">
           <div className="right-cart">
             <h2>Cart
-              <img src="/img/cart-remove.svg" alt="remove" />
+              <img onClick={onClose} src="/img/cart-remove.svg" alt="remove" />
             </h2>
 
             <div className="items">
-              <div className="cartItem">
-              <img width={70} height={70} src="/img/sneakers/1.jpg" alt="sneakers" />
-              <div>
-                <p>Мужские Кроссовки Nike Blazer Mid Suede</p>
-                <b>12 999 rub.</b>
-              </div>
-              <img src="/img/cart-remove.svg" alt="remove" />
-            </div>
-            <div className="cartItem">
-              <img width={70} height={70} src="/img/sneakers/2.jpg" alt="sneakers" />
-              <div>
-                <p>Мужские Кроссовки Nike Air Max 270</p>
-                <b>12 999 rub.</b>
-              </div>
-              <img src="/img/cart-remove.svg" alt="remove" />
-              </div>            
+            {
+              items.map((obj) => (
+                <div>
+                  <div className="cartItem">
+                    <img width={70} height={70} src={obj.img} alt="sneakers" />
+                    <div>
+                      <p>{obj.name}</p>
+                      <b>{obj.price} rub.</b>
+                    </div>
+                    <img src="/img/cart-remove.svg" alt="remove" />
+                  </div>
+                </div>
+              ))
+            }
             </div>
 
             <div>
